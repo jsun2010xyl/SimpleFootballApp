@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Jingyan\'s App</string>
+    <string name="app_name">Jingyan\'s Sports App</string>
+    <string-array name="sort_array">
+        <item>Sort by Wins</item>
+        <item>Sort by Losses</item>
+        <item>Sort by Draws</item>
+        <item>Sort by Total games played against</item>
+    </string-array>
 </resources>
