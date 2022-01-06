@@ -15,13 +15,13 @@ class TeamDetail1 : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
     private fun sortT(T: MutableList<TotalGame>, type: Int){
         // TODO : 注意正序倒序问题
         if ( type == 0 ){ // Sort by wins
-            T.sortBy { it.wins }
+            T.sortByDescending { it.wins }
         }else if ( type == 1 ){ // Sort by losses
-            T.sortBy { it.losses }
+            T.sortByDescending { it.losses }
         }else if ( type == 2 ){ // Sort by draws
-            T.sortBy { it.draws }
+            T.sortByDescending { it.draws }
         }else if (type == 3){ // Sort by T
-            T.sortBy { it.totalGame }
+            T.sortByDescending { it.totalGame }
         }
 
     }

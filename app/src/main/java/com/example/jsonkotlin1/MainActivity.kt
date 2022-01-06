@@ -96,7 +96,6 @@ class MainActivity : AppCompatActivity() {
                     homeScore = jsonArray1.getJSONObject(i).getInt("homeScore")
                     awayScore = jsonArray1.getJSONObject(i).getInt("awayScore")
 
-                    // TODO : 是不是没有问题了？
                     homeTeamIndex = getTeamIndex(homeTeam)
                     if (homeTeamIndex == -1) {
                         addTeamToList(homeTeam)
