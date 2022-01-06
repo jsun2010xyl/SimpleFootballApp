@@ -21,8 +21,6 @@ class MainActivity : AppCompatActivity() {
 
     private val latch = CountDownLatch(1)
 
-    //private val adapter1 = CustomAdapter(teams) { position -> onListItemClick(position) }
-
     private fun onListItemClick(position: Int) {
 
         data1.team = teams[position]

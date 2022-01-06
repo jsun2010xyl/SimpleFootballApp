@@ -63,8 +63,6 @@ class TeamDetail1 : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
     }
 
     override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-        // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
         data1.team?.let { sortT(it.T, pos) }
         if (adapter1 != null) {
             adapter1.notifyDataSetChanged()
@@ -72,7 +70,6 @@ class TeamDetail1 : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
     }
 
     override fun onNothingSelected(parent: AdapterView<*>) {
-        // Another interface callback
     }
 
 }
