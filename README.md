@@ -3,4 +3,3 @@
  
  Android SDK 31 is used.
  
-If you have any question or advice, please email me at jsun2010@gmail.com.
