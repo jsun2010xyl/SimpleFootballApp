@@ -140,11 +140,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // 这一句放在哪里无所谓，反正新thread都是后运行
+        getTeamStandings()
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        getTeamStandings()
 
         // getting the recyclerview by its id
         val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
