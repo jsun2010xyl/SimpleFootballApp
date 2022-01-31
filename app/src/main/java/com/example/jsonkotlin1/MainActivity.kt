@@ -1,5 +1,6 @@
 package com.example.jsonkotlin1
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,6 +10,15 @@ class MainActivity : AppCompatActivity() {
 
     // Use it to store the data from the json file
     private val teams = mutableListOf<Team>()
+
+    private fun onListItemClick(position: Int) {
+
+        data1.team = teams[position]
+
+        val intent = Intent(this, TeamDetail1::class.java).apply {
+        }
+        startActivity(intent)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
