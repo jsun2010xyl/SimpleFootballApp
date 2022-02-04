@@ -1,10 +1,11 @@
-package com.example.jsonkotlin1
+package com.example.jsonkotlin1.ui
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.jsonkotlin1.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,9 +14,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun onListItemClick(position: Int) {
 
-        data1.team = teams[position]
+        selectedTeam.team = teams[position]
 
-        val intent = Intent(this, TeamDetail1::class.java).apply {
+        val intent = Intent(this, TeamDetailActivity::class.java).apply {
         }
         startActivity(intent)
     }

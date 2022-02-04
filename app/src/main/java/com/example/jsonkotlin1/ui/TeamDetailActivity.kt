@@ -1,4 +1,4 @@
-package com.example.jsonkotlin1
+package com.example.jsonkotlin1.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,11 +6,14 @@ import android.view.View
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.jsonkotlin1.R
+import com.example.jsonkotlin1.TotalGame
+import com.example.jsonkotlin1.selectedTeam
 
-class TeamDetail1 : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
+class TeamDetailActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
 
     // This will pass the List to our Adapter
-    val adapter1 = data1.team?.let { CustomAdapter2(it) }
+    val adapter1 = selectedTeam.team?.let { CustomAdapterForTeamDetail(it) }
 
     private fun sortT(T: MutableList<TotalGame>, type: Int){
         // TODO : 注意正序倒序问题
@@ -38,8 +41,8 @@ class TeamDetail1 : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
 
         val textViewTeamName: TextView = findViewById(R.id.textViewTeamName) as TextView
 
-        if (data1.team != null) {
-            textViewTeamName.text = data1.team!!.name
+        if (selectedTeam.team != null) {
+            textViewTeamName.text = selectedTeam.team!!.name
         }
 
 
@@ -63,7 +66,7 @@ class TeamDetail1 : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
     }
 
     override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-        data1.team?.let { sortT(it.T, pos) }
+        selectedTeam.team?.let { sortT(it.T, pos) }
         if (adapter1 != null) {
             adapter1.notifyDataSetChanged()
         }

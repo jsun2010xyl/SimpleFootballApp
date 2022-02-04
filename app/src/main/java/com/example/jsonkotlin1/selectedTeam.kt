@@ -1,5 +1,5 @@
 package com.example.jsonkotlin1
 
-object data1 {
+object selectedTeam {
     var team: Team? = null
 }

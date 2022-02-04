@@ -1,27 +1,28 @@
-package com.example.jsonkotlin1
+package com.example.jsonkotlin1.ui
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.jsonkotlin1.R
+import com.example.jsonkotlin1.Team
 
-class CustomAdapter2(private var teamInfo: Team): RecyclerView.Adapter<CustomAdapter2.ViewHolder>() {
+class CustomAdapter(private val mList: MutableList<Team>, private val onItemClicked: (position: Int) -> Unit) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // inflates the card_view_design view
-        // that is used to hold list item
+        // inflates the card_view_design view that is used to hold list item
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_view_design2, parent, false)
+            .inflate(R.layout.card_view_design, parent, false)
 
-        return ViewHolder(view)
+        return ViewHolder(view, onItemClicked)
     }
 
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val team = teamInfo.T[position]
+        val team = mList[position]
 
         // sets the name to the textView1
         holder.textView1.text = team.name
@@ -32,17 +33,17 @@ class CustomAdapter2(private var teamInfo: Team): RecyclerView.Adapter<CustomAda
         // sets the losses to the textView3
         holder.textView4.text = team.draws.toString()
         // sets the losses to the textView3
-        holder.textView5.text = team.totalGame.toString()
+        holder.textView5.text = "%.1f".format(team.winP)
 
     }
 
     // return the number of the items in the list
     override fun getItemCount(): Int {
-        return teamInfo.T.size
+        return mList.size
     }
 
     // Holds the views for adding it to image and text
-    class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+    class ViewHolder(ItemView: View, private val onItemClicked: (position: Int) -> Unit) : RecyclerView.ViewHolder(ItemView), View.OnClickListener {
         // Used to show the name
         val textView1: TextView = itemView.findViewById(R.id.textView1Name)
         // Used to show wins
@@ -52,8 +53,16 @@ class CustomAdapter2(private var teamInfo: Team): RecyclerView.Adapter<CustomAda
         // Used to show draws
         val textView4: TextView = itemView.findViewById(R.id.textView4Draws)
         // Used to show winP
-        val textView5: TextView = itemView.findViewById(R.id.textView5T)
+        val textView5: TextView = itemView.findViewById(R.id.textView5WinP)
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View) {
+            val position = adapterPosition
+            onItemClicked(position)
+        }
 
     }
-
 }
