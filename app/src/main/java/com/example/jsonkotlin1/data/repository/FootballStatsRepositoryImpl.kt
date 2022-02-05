@@ -5,6 +5,7 @@ import com.example.jsonkotlin1.data.FootballStats
 import com.example.jsonkotlin1.data.db.FootballStatsDao
 import com.example.jsonkotlin1.data.db.entity.FootballGame
 import com.example.jsonkotlin1.data.db.entity.FootballTeam
+import com.example.jsonkotlin1.data.getTeamStats
 import com.example.jsonkotlin1.data.network.NetworkDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -26,7 +27,7 @@ class FootballStatsRepositoryImpl (
             // 可以从Arraylist到List
             footballStatsDao.upsertGames(fetchedFootballStats)
             // TODO : upsertTeamStats
-            
+            footballStatsDao.upsertTeamStats(getTeamStats(fetchedFootballStats))
         }
     }
 
