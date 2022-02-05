@@ -24,6 +24,7 @@ class FootballStatsRepositoryImpl (
     private fun persistFetchedFootballStats(fetchedFootballStats: FootballStats){
         GlobalScope.launch(Dispatchers.IO) {
             footballStatsDao.upsertGames(fetchedFootballStats)
+            // TODO : 注意这里的类型
             footballStatsDao.upsertTeamStats(getTeamStats(fetchedFootballStats))
         }
     }

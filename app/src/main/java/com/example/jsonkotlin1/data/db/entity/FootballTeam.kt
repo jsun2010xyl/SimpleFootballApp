@@ -11,5 +11,5 @@ data class FootballTeam(
     var wins: Int,
     var losses: Int,
     var draws: Int,
-    val winPercentage: Double
+    var winPercentage: Double
 )
