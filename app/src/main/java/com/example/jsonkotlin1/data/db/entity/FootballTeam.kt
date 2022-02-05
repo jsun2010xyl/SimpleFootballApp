@@ -8,7 +8,8 @@ data class FootballTeam(
     @PrimaryKey
     val teamId: String,
     val teamName: String,
-    val wins: Int,
-    val losses: Int,
+    var wins: Int,
+    var losses: Int,
+    var draws: Int,
     val winPercentage: Double
 )

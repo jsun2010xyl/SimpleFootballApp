@@ -23,10 +23,7 @@ class FootballStatsRepositoryImpl (
 
     private fun persistFetchedFootballStats(fetchedFootballStats: FootballStats){
         GlobalScope.launch(Dispatchers.IO) {
-            // fetchedItemList是ItemList，参数是List<Item>
-            // 可以从Arraylist到List
             footballStatsDao.upsertGames(fetchedFootballStats)
-            // TODO : upsertTeamStats
             footballStatsDao.upsertTeamStats(getTeamStats(fetchedFootballStats))
         }
     }
