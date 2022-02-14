@@ -43,7 +43,7 @@ class CustomAdapter(private val mList: MutableList<Team>, private val onItemClic
     }
 
     // Holds the views for adding it to image and text
-    class ViewHolder(ItemView: View, private val onItemClicked: (position: Int) -> Unit) : RecyclerView.ViewHolder(ItemView), View.OnClickListener {
+    class ViewHolder(view: View, private val onItemClicked: (position: Int) -> Unit) : RecyclerView.ViewHolder(view), View.OnClickListener {
         // Used to show the name
         val textView1: TextView = itemView.findViewById(R.id.textView1Name)
         // Used to show wins
